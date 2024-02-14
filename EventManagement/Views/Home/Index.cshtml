@@ -11,7 +11,8 @@
                 <th scope="col">Başlık</th>
                 <th scope="col">Tarih</th>
                 <th scope="col">Konum</th>
-                <th scope="col"></th>
+                <th scope="col">Detaylar</th>
+                <th scope="col">Sil</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,12 @@
                         <a class="btn btn-primary" asp-controller="Details" asp-action="Details" asp-route-id="@item.Id">
                             Detayları Gör
                         </a>
+                    </td>
+                    <td>
+                        <form asp-controller="Home" asp-action="Delete" method="post">
+                            <input type="hidden" name="eventId" value="@item.Id" />
+                            <button type="submit" class="btn btn-danger">Sil</button>
+                        </form>
                     </td>
                 </tr>
             }
