@@ -1,0 +1,33 @@
+﻿@model List<Event>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <h1>Yaklaşan Etkinlikler</h1>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Başlık</th>
+                <th scope="col">Tarih</th>
+                <th scope="col">Konum</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.Location</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Details" asp-action="Details" asp-route-id="@item.Id">
+                            Detayları Gör
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

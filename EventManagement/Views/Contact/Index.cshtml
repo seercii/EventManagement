@@ -1,0 +1,34 @@
+﻿@model Event
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1>Yeni Etkinlik Ekle</h1>
+
+    <form asp-controller="Contact" asp-action="AddEvent" method="post">
+        <div class="form-group">
+            <label for="Title">Başlık:</label>
+            <input type="text" name="Title" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Date">Tarih:</label>
+            <input type="date" name="Date" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Location">Lokasyon:</label>
+            <input type="text" name="Location" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Details">Detaylar:</label>
+            <textarea name="Details" class="form-control" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Etkinlik Ekle</button>
+    </form>
+</div>
